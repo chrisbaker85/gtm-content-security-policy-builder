@@ -17,9 +17,9 @@ div.field-group {border-radius: 4px;box-shadow: 0 0 0 1px #dadce0; min-height: 5
 .offcanvas-header h5 {margin-left: 25px;}
 .offcanvas.offcanvas-end {width: 50%}
 ul.additional-tlds {list-style: none;}
-.form-check.indented a {font-size: 10pt; padding-left: 20px;}
-.open-tlds.disabled {color: #bfbfbf;}
-.open-tlds.enabled {color: inherit;}
+.form-check a {font-size: 10pt; padding-left: 20px;}
+a.disabled {color: #bfbfbf;}
+a.enabled {color: inherit;}
 </style>
 
 <!-- Google Tag Manager -->
@@ -40,7 +40,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<div class="col">
 			<h1 style="font-size: 16pt; padding-top: 30px;">
 
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="0 0 32.288136 43.050846" preserveAspectRatio="xMidYMid meet" id="svg8" sodipodi:docname="Editor_protection.svg" width="32.288136" height="43.050846" style="stroke-linecap:round;stroke-linejoin:round;vertical-align: bottom;" inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="0 0 32.288136 43.050846" preserveAspectRatio="xMidYMid meet" id="svg8" sodipodi:docname="Editor_protection.svg" width="32.288136" height="43.050846" style="stroke-linecap:round;stroke-linejoin:round;vertical-align: bottom;margin-right: 10px;" inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata id="metadata14"> <rdf:RDF><cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /> <dc:title /> </cc:Work> </rdf:RDF> </metadata>
   <defs id="defs12" />
   <sodipodi:namedview pagecolor="#ffffff" bordercolor="#66bdc1" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1017" id="namedview10" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:pagecheckerboard="true" showborder="true" inkscape:showpageshadow="true" inkscape:zoom="22.627417" inkscape:cx="19.311881" inkscape:cy="19.004912" inkscape:window-x="1912" inkscape:window-y="32" inkscape:window-maximized="1" inkscape:current-layer="svg8" />
@@ -120,6 +120,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					<div class="form-check form-switch">
 					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-optimize">
 					  <label class="form-check-label" for="setting-google-optimize">Google Optimize</label>
+					  <a target="_blank" class="disabled" href="https://www.seerinteractive.com/insights/google-optimize-going-away">
+						...is going away 30-Sep 2023
+					  </a>
 					</div>
 				</div>
 
@@ -177,7 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<div class="col card">
 		  <div class="card-contents">
 			  <div class="card-title">References</div>
-			  <ul class="indented">
+			  <ul class="">
 				<li><a target="_blank" href="https://developers.google.com/tag-platform/tag-manager/web/csp">https://developers.google.com/tag-platform/tag-manager/web/csp</a></li>
 				<li><a target="_blank" href="https://www.google.com/supported_domains">https://www.google.com/supported_domains</a></li>
 				<li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</a></li>
@@ -258,24 +261,24 @@ var additionalTlds = {
 	'google.dm': 'Dominica',
 	'google.com.do': 'Dominican Republic',
 	'google.dz': 'Algeria',
-	'google.com.ec': '',
-	'google.ee': '',
-	'google.com.eg': '',
-	'google.es': '',
-	'google.com.et': '',
-	'google.fi': '',
-	'google.com.fj': '',
-	'google.fm': '',
-	'google.fr': '',
-	'google.ga': '',
-	'google.ge': '',
-	'google.gg': '',
-	'google.com.gh': '',
-	'google.com.gi': '',
-	'google.gl': '',
-	'google.gm': '',
-	'google.gr': '',
-	'google.com.gt': '',
+	'google.com.ec': 'Ecuador',
+	'google.ee': 'Estonia',
+	'google.com.eg': 'Egypt',
+	'google.es': 'Spain',
+	'google.com.et': 'Ethiopia',
+	'google.fi': 'Finland',
+	'google.com.fj': 'Fiji',
+	'google.fm': 'Federated States of Micronesia',
+	'google.fr': 'France',
+	'google.ga': 'Gabon',
+	'google.ge': 'Georgia',
+	'google.gg': 'Guernsey',
+	'google.com.gh': 'Ghana',
+	'google.com.gi': 'Gibraltar	',
+	'google.gl': 'Greenland',
+	'google.gm': 'Gambia',
+	'google.gr': 'Greece',
+	'google.com.gt': 'Guatemala',
 	'google.gy': '',
 	'google.com.hk': '',
 	'google.hn': '',
