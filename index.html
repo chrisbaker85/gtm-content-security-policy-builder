@@ -1,0 +1,581 @@
+<html>
+<head>
+<title>Google Tag Manager Content Security Policy Generator</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<style>
+.card {margin-bottom: 16px; border-radius: 8px;padding:0;}
+.card-contents {margin-bottom: 16px; padding-bottom: 8px; padding-top: 16px; padding-left: 24px; padding-right: 24px;}
+.card-title {margin: -16px -24px 0; padding: 15px 24px 16px;}
+h3.field-group-title {color: rgba(0,0,0,.54);font-size: 12px;letter-spacing: .3px;padding-bottom: 1px;padding-top: 2px;}
+div.field-group {border-radius: 4px;box-shadow: 0 0 0 1px #dadce0; min-height: 56px;padding: 15px;margin-bottom: 20px;}
+.indented {margin-left: 35px;}
+.directive {display:block}
+.directive .name {font-weight: bold;}
+.directive span.highlight {background-color: #fff3cd;}
+.offcanvas-header {justify-content: left;}
+.offcanvas-header h5 {margin-left: 25px;}
+.offcanvas.offcanvas-end {width: 50%}
+ul.additional-tlds {list-style: none;}
+</style>
+</head>
+
+<body style="background-color: #f1f3f4; font-family: 'Google Sans',Roboto,Helvetica,Arial,sans-serif;">
+
+<header style="min-height: 112px; background-color: #fff; box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 2px 10px -1px rgb(0 0 0 / 12%)">
+	<div class="container">
+	  <div class="row">
+		<div class="col">
+		  <h1 style="font-size: 16pt; padding-top: 30px;">Content Security Policy Generator
+		  <span style="display: block; font-size: 12pt; clear: left;">for <a href="https://tagmanager.google.com/" target="_blank">Google Tag Manager</a></span></h1>
+		</div>
+	  </div>
+	</div>
+</header>
+
+<article style="padding: 24px 24px 24px 16px">
+	<div class="container text-left">
+
+	  <div class="row align-items-start input">
+		<div class="col card">
+			<div class="card-contents">
+			  <div class="card-title">Instructions</div>
+			  <div class="indented">
+				  <p>Recommend CSP nonce</p>
+				  <p>Recommend hashes</p>
+				  <p>Otherwise,...</p>
+			  </div>
+		    </div>
+		</div>
+	  </div>
+
+	  <div class="row align-items-start input">
+		<div class="col card">
+			<div class="card-contents">
+			  <div class="card-title">Settings</div>
+
+				<h3 class="field-group-title">Google Tag Manager</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-gtm-preview-mode" checked>
+					  <label class="form-check-label" for="setting-gtm-preview-mode">GTM Preview Mode</label>
+					</div>
+				</div>
+
+
+				<h3 class="field-group-title">Google Analytics</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-universal-analytics">
+					  <label class="form-check-label" for="setting-universal-analytics">Universal Analytics</label>
+					</div>
+
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-analytics-4">
+					  <label class="form-check-label" for="setting-google-analytics-4">Google Analytics 4</label>
+					</div>
+
+					<div class="form-check form-switch indented">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-signals" disabled>
+					  <label class="form-check-label" for="setting-google-signals">Google Signals</label>
+					</div>
+					
+					<a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Choose Additional Google Country-Code TLDs</a>
+				</div>
+
+				<h3 class="field-group-title">Google Optimize</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-optimize">
+					  <label class="form-check-label" for="setting-google-optimize">Google Optimize</label>
+					</div>
+				</div>
+
+				<h3 class="field-group-title">Google Ads</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-ads-conversion">
+					  <label class="form-check-label" for="setting-google-ads-conversion">Google Ads Conversion</label>
+					</div>
+
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-ads-remarketing">
+					  <label class="form-check-label" for="setting-google-ads-remarketing">Google Ads Remarketing</label>
+					</div>
+				</div>
+
+				<h3 class="field-group-title">Floodlight</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-floodlight">
+					  <label class="form-check-label" for="setting-floodlight">Floodlight</label>
+					</div>
+							 
+					<input class="form-control indented" type="text" placeholder="Config ID" aria-label="default input example" id="setting-floodlight-config-id" disabled style="max-width: 230px;">
+					
+					<div class="form-check form-switch indented">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-floodlight-custom-scripts" disabled>
+					  <label class="form-check-label" for="setting-floodlight-custom-scripts">Custom Scripts Beacons</label>
+					</div>
+					
+					<div class="form-check form-switch indented">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-floodlight-image-tags" disabled>
+					  <label class="form-check-label" for="setting-floodlight-image-tags">Image Tags</label>
+					</div>
+					
+					<div class="form-check form-switch indented">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-floodlight-consent-mode" disabled>
+					  <label class="form-check-label" for="setting-floodlight-consent-mode">Consent Mode</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+
+	  <div class="row align-items-start">
+		<div class="col card">
+		  <div class="card-contents">
+			  <div class="card-title">Output</div>
+			  <div class="form-control output" style="font-family: monospace; font-size: .75em;"></div>
+		  </div>
+		</div>
+	  </div>
+	  
+	  <div class="row align-items-start">
+		<div class="col card">
+		  <div class="card-contents">
+			  <div class="card-title">References</div>
+			  <ul class="indented">
+				<li><a href="https://developers.google.com/tag-platform/tag-manager/web/csp">https://developers.google.com/tag-platform/tag-manager/web/csp</a></li>
+				<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</a></li>
+			  </div>
+		  </div>
+		</div>
+	  </div>
+	  
+	</div>
+</article>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	<h5 class="offcanvas-title" id="offcanvasRightLabel">Additional cc-TLDs</h5>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="additional-tlds">
+	</ul>
+  </div>
+</div>
+
+<script>
+
+var directives = ['script-src', 'img-src', 'frame-src', 'style-src', 'connect-src', 'font-src'];
+var inputs = document.getElementsByTagName('input');
+var additionalTlds = {
+	'google.ad': '',
+	'google.ae': '',
+	'google.com.af': '',
+	'google.com.ag': '',
+	'google.com.ai': '',
+	'google.al': '',
+	'google.am': '',
+	'google.co.ao': '',
+	'google.com.ar': '',
+	'google.as': '',
+	'google.at': '',
+	'google.com.au': '',
+	'google.az': '',
+	'google.ba': '',
+	'google.com.bd': '',
+	'google.be': '',
+	'google.bf': '',
+	'google.bg': '',
+	'google.com.bh': '',
+	'google.bi': '',
+	'google.bj': '',
+	'google.com.bn': '',
+	'google.com.bo': '',
+	'google.com.br': '',
+	'google.bs': '',
+	'google.bt': '',
+	'google.co.bw': '',
+	'google.by': '',
+	'google.com.bz': '',
+	'google.ca': '',
+	'google.cd': '',
+	'google.cf': '',
+	'google.cg': '',
+	'google.ch': '',
+	'google.ci': '',
+	'google.co.ck': '',
+	'google.cl': '',
+	'google.cm': '',
+	'google.cn': '',
+	'google.com.co': '',
+	'google.co.cr': '',
+	'google.com.cu': '',
+	'google.cv': '',
+	'google.com.cy': '',
+	'google.cz': '',
+	'google.de': '',
+	'google.dj': '',
+	'google.dk': '',
+	'google.dm': '',
+	'google.com.do': '',
+	'google.dz': '',
+	'google.com.ec': '',
+	'google.ee': '',
+	'google.com.eg': '',
+	'google.es': '',
+	'google.com.et': '',
+	'google.fi': '',
+	'google.com.fj': '',
+	'google.fm': '',
+	'google.fr': '',
+	'google.ga': '',
+	'google.ge': '',
+	'google.gg': '',
+	'google.com.gh': '',
+	'google.com.gi': '',
+	'google.gl': '',
+	'google.gm': '',
+	'google.gr': '',
+	'google.com.gt': '',
+	'google.gy': '',
+	'google.com.hk': '',
+	'google.hn': '',
+	'google.hr': '',
+	'google.ht': '',
+	'google.hu': '',
+	'google.co.id': '',
+	'google.ie': '',
+	'google.co.il': '',
+	'google.im': '',
+	'google.co.in': '',
+	'google.iq': '',
+	'google.is': '',
+	'google.it': '',
+	'google.je': '',
+	'google.com.jm': '',
+	'google.jo': '',
+	'google.co.jp': 'Japan',
+	'google.co.ke': '',
+	'google.com.kh': '',
+	'google.ki': '',
+	'google.kg': '',
+	'google.co.kr': 'Korea',
+	'google.com.kw': '',
+	'google.kz': '',
+	'google.la': '',
+	'google.com.lb': '',
+	'google.li': '',
+	'google.lk': '',
+	'google.co.ls': '',
+	'google.lt': '',
+	'google.lu': '',
+	'google.lv': '',
+	'google.com.ly': '',
+	'google.co.ma': '',
+	'google.md': '',
+	'google.me': '',
+	'google.mg': '',
+	'google.mk': '',
+	'google.ml': '',
+	'google.com.mm': '',
+	'google.mn': '',
+	'google.ms': '',
+	'google.com.mt': '',
+	'google.mu': '',
+	'google.mv': '',
+	'google.mw': '',
+	'google.com.mx': 'Mexico',
+	'google.com.my': '',
+	'google.co.mz': '',
+	'google.com.na': '',
+	'google.com.ng': '',
+	'google.com.ni': '',
+	'google.ne': '',
+	'google.nl': '',
+	'google.no': '',
+	'google.com.np': '',
+	'google.nr': '',
+	'google.nu': '',
+	'google.co.nz': '',
+	'google.com.om': '',
+	'google.com.pa': '',
+	'google.com.pe': '',
+	'google.com.pg': '',
+	'google.com.ph': '',
+	'google.com.pk': '',
+	'google.pl': '',
+	'google.pn': '',
+	'google.com.pr': '',
+	'google.ps': '',
+	'google.pt': '',
+	'google.com.py': '',
+	'google.com.qa': '',
+	'google.ro': 'Romania',
+	'google.ru': 'Russia',
+	'google.rw': '',
+	'google.com.sa': '',
+	'google.com.sb': '',
+	'google.sc': '',
+	'google.se': '',
+	'google.com.sg': '',
+	'google.sh': '',
+	'google.si': '',
+	'google.sk': '',
+	'google.com.sl': '',
+	'google.sn': '',
+	'google.so': '',
+	'google.sm': '',
+	'google.sr': '',
+	'google.st': '',
+	'google.com.sv': '',
+	'google.td': '',
+	'google.tg': '',
+	'google.co.th': '',
+	'google.com.tj': '',
+	'google.tl': '',
+	'google.tm': '',
+	'google.tn': '',
+	'google.to': '',
+	'google.com.tr': '',
+	'google.tt': '',
+	'google.com.tw': 'Taiwan',
+	'google.co.tz': '',
+	'google.com.ua': '',
+	'google.co.ug': '',
+	'google.co.uk': 'United Kingdom',
+	'google.com.uy': 'Uruguay',
+	'google.co.uz': '',
+	'google.com.vc': '',
+	'google.co.ve': '',
+	'google.vg': '',
+	'google.co.vi': '',
+	'google.com.vn': '',
+	'google.vu': '',
+	'google.ws': '',
+	'google.rs': '',
+	'google.co.za': '',
+	'google.co.zm': '',
+	'google.co.zw': '',
+	'google.cat': ''
+};
+
+var optionDirectives = {
+
+	'gtm-preview-mode': {
+	  'script-src': ['https://tagmanager.google.com'],
+	  'style-src': ['https://tagmanager.google.com', 'https://fonts.googleapis.com'],
+	  'img-src': ['https://ssl.gstatic.com', 'https://www.gstatic.com'],
+	  'font-src': ['https://fonts.gstatic.com', 'data:']
+	},
+
+	'universal-analytics-tag': {
+	  'script-src': ['https://www.google-analytics.com', 'https://ssl.google-analytics.com'],
+	  'img-src': ['https://www.google-analytics.com'],
+	  'connect-src': ['https://www.google-analytics.com']
+	},
+
+	'google-analytics-4-tag': {
+	  'script-src':  ['https://*.googletagmanager.com'],
+	  'img-src':     ['https://*.google-analytics.com','https://*.googletagmanager.com'],
+	  'connect-src': ['https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://*.googletagmanager.com']
+	},
+
+	'google-analytics-4-with-google-signals': {
+	  'script-src':  ['https://*.googletagmanager.com'],
+	  'img-src':     ['https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://*.googletagmanager.com', 'https://*.g.doubleclick.net', 'https://*.google.com', 'https://*.google.TLD'],
+	  'connect-src': ['https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://*.googletagmanager.com', 'https://*.g.doubleclick.net', 'https://*.google.com', 'https://*.google.TLD']
+	},
+
+	'google-optimize-tag': {
+	  'script-src': ['https://www.google-analytics.com']
+	},
+
+	'google-ads-conversion-tag': {
+	  'script-src': ['https://www.googleadservices.com', 'https://www.google.com'],
+	  'img-src': ['https://googleads.g.doubleclick.net', 'https://www.google.com']
+	},
+
+	'google-ads-remarketing-tag': {
+	  'script-src': ['https://www.googleadservices.com', 'https://googleads.g.doubleclick.net', 'https://www.google.com'],
+	  'img-src': ['https://www.google.com'],
+	  'frame-src': ['https://bid.g.doubleclick.net']
+	},
+
+	'floodlight-tag': {
+	  'img-src': ['https://FLOODLIGHT-CONFIG-ID.fls.doubleclick.net']
+	},
+
+	'floodlight-custom-scripts': {
+	  'frame-src': ['https://FLOODLIGHT-CONFIG-ID.fls.doubleclick.net']
+	},
+
+	'floodlight-image-tags': {
+	  'img-src': ['https://ad.doubleclick.net']
+	},
+
+	'floodlight-consent-mode': {
+	  'img-src': ['https://ade.googlesyndication.com']
+	},
+
+}
+
+var getDirectiveWithReplacements = function(directive, search, replacement) {
+  for (var i = 0; i < directive.length; i++) {
+	var directiveItem = directive[i];
+	if (directiveItem == search) {
+	  directive[i] = replacement;
+	}
+  }
+  return directive;
+}
+
+var buildCspDirectives = function(options) {
+  var cspDirectives = {
+    'script-src': [],
+    'style-src': [],
+	'img-src': [],
+	'frame-src': [],
+	'connect-src': [],
+	'font-src': []
+  };
+  options.forEach(function(option) {
+    directives.forEach(function(directive) {
+	  if (optionDirectives[option][directive]) {
+		var newDirective = optionDirectives[option][directive].slice();
+
+		// add additional CC-TLDs for GA4/Signals
+		if (['img-src', 'connect-src'].includes(directive) && option == 'google-analytics-4-with-google-signals') {
+		  var additionalTlds = collectAdditionalTlds();
+		  if (additionalTlds.length) {
+			newDirective = getDirectiveWithReplacements(newDirective, 'https://*.google.TLD', additionalTlds.join(' `'));
+		  }
+		}
+	    cspDirectives[directive] = cspDirectives[directive].concat(newDirective);
+	  }
+	});
+  });
+  return cspDirectives;
+}
+
+var outputCspDirectives = function(directives) {
+  var output = '';
+  Object.keys(directives).forEach(function(key){
+    var entries = directives[key];
+	if (entries.length) {
+	  if (output) output += "\n";
+	  entries.forEach(function(entry, i) {
+	    if (entry.includes('FLOODLIGHT-CONFIG-ID') || entry.includes('.TLD')) {
+		  entries[i] = '<span class="highlight">' + entry + '</span>';
+		}
+	  });
+      output += '<div class="directive"> <span class="name">' + key+'</span>: ' + entries.join(' ') + ';</div>';
+	}
+  });
+  return output;
+};
+
+var getDirectiveOptionsFromSettings = function() {
+  var options = [];
+  var mappings = {
+    'setting-gtm-preview-mode': 'gtm-preview-mode',
+	'setting-universal-analytics': 'universal-analytics-tag',
+	'setting-google-analytics-4': 'google-analytics-4-tag',
+	'setting-google-signals': 'google-analytics-4-with-google-signals',
+	'setting-google-optimize': 'google-optimize-tag',
+	'setting-google-ads-conversion': 'google-ads-conversion-tag',
+	'setting-google-ads-remarketing': 'google-ads-remarketing-tag',
+	'setting-floodlight': 'floodlight-tag',
+	'setting-floodlight-custom-scripts': 'floodlight-custom-scripts',
+	'setting-floodlight-image-tags': 'floodlight-image-tags',
+	'setting-floodlight-consent-mode': 'floodlight-consent-mode',
+  };
+  for(var i = 0; i < inputs.length; i++) {
+    var input = inputs[i];
+    if (mappings[input.id] && !input.disabled && input.checked) {
+	  options.push(mappings[input.id]);
+	}
+  }
+  return options;
+}
+
+var update = function() {
+  var out = outputCspDirectives(buildCspDirectives(getDirectiveOptionsFromSettings()));
+  document.querySelector('.output').innerHTML = out;
+};
+
+var collectAdditionalTlds = function() {
+  var selectedTlds = [];
+  var inputs = document.querySelectorAll('.additional-tld input');
+  for (var i = 0; i < inputs.length; i++) {
+	var input = inputs[i];
+	if (input.checked) {
+	  var tld = input.id.replace('setting-additional-tld_', '').replace('-', '.').replace('-', '.');
+	  selectedTlds.push('https://*.' + tld);
+	}
+  } 
+  return selectedTlds;
+}
+
+var tldList = document.querySelector('.additional-tlds');
+var tldListItem = '<li class="additional-tld"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="setting-additional-tld-id"><label class="form-check-label" for="setting-additional-tld-id">[LABEL]</label></div></li>'
+
+var tlds = Object.keys(additionalTlds);
+var countryNames = Object.values(additionalTlds);
+for(var i = 0; i < tlds.length; i++) {
+  tld = tlds[i];
+  var countryName = countryNames[i];
+  var label = (countryName)?(tld + ' (' + countryName  + ')'):(tld);
+  var tldCleansed = tld.replace('.', '-').replace('.', '-');
+  var tldId = 'setting-additional-tld_' + tldCleansed;
+  var countryListItem = tldListItem.replace('[LABEL]', label).replace('setting-additional-tld-id', tldId).replace('setting-additional-tld-id', tldId);
+  tldList.insertAdjacentHTML('beforeend', countryListItem);
+}
+
+for(var i = 0; i < inputs.length; i++) {
+  var input = inputs[i];
+  input.addEventListener('change', function(e) {
+    var el = e.target;
+	if (el.checked) {
+		if (el.id == 'setting-google-analytics-4') {
+		  // enable google-signals toggle
+		  document.getElementById('setting-google-signals').disabled = false;
+		}
+		if (el.id == 'setting-floodlight') {
+		  document.getElementById('setting-floodlight-config-id').disabled = false;
+		  document.getElementById('setting-floodlight-custom-scripts').disabled = false;
+		  document.getElementById('setting-floodlight-image-tags').disabled = false;
+		  document.getElementById('setting-floodlight-consent-mode').disabled = false;
+		}
+	} else {
+		if (el.id == 'setting-google-analytics-4') {
+		  // dis google-signals toggle
+		  document.getElementById('setting-google-signals').disabled = true;
+		}
+		if (el.id == 'setting-floodlight') {
+		  document.getElementById('setting-floodlight-config-id').disabled = true;
+		  document.getElementById('setting-floodlight-custom-scripts').disabled = true;
+		  document.getElementById('setting-floodlight-image-tags').disabled = true;
+		  document.getElementById('setting-floodlight-consent-mode').disabled = true;
+		}
+	}
+	
+	update();
+  });
+}
+
+update();
+
+</script>
+
+<footer style="text-align: center; font-size: 10pt; color: rgba(0, 0, 0, 0.54)">
+  <div class="container">This tool is provided free of charge and as such, no support is provided. There is no guarantee of correctness, and your are responsible for the security of your own website, and the websites you oversee.  This is not produced by Google.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+</html>
