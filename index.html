@@ -39,11 +39,16 @@ ul.additional-tlds {list-style: none;}
 	  <div class="row align-items-start input">
 		<div class="col card">
 			<div class="card-contents">
-			  <div class="card-title">Instructions</div>
+			  <div class="card-title">Usage</div>
 			  <div class="indented">
-				  <p>Recommend CSP nonce</p>
-				  <p>Recommend hashes</p>
-				  <p>Otherwise,...</p>
+				<p>This utility is designed to help take some of the frustration out of deploying Google Tag Manager on a website that has a Content Security Policy defined. It can be accessed at <a href="https://ga4-content-security-policy.web.app/" target="_blank">https://ga4-content-security-policy.web.app/</a></p>
+				<p>
+					<ol>
+						<li>Choose the GTM tags and features below that are in use in your GTM container.</li>
+						<li>For Google Analytics 4 with Google Signals enabled, choose additional country-specific Google domains that should be included in your implementation. Identify the country-specific Google domains by running a report of Users by Country</li>
+						<li>For Floodlight tags, enter your Floodlight Config ID</li>
+						<li>Integrate the CSP directives generated in the Output section below into the site's Content Security Policy.</li>
+					</ol>
 			  </div>
 		    </div>
 		</div>
@@ -146,8 +151,9 @@ ul.additional-tlds {list-style: none;}
 		  <div class="card-contents">
 			  <div class="card-title">References</div>
 			  <ul class="indented">
-				<li><a href="https://developers.google.com/tag-platform/tag-manager/web/csp">https://developers.google.com/tag-platform/tag-manager/web/csp</a></li>
-				<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</a></li>
+				<li><a target="_blank" href="https://developers.google.com/tag-platform/tag-manager/web/csp">https://developers.google.com/tag-platform/tag-manager/web/csp</a></li>
+				<li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</a></li>
+				<li><a target="_blank" href="https://en.wikipedia.org/wiki/Country_code_top-level_domain">https://en.wikipedia.org/wiki/Country_code_top-level_domain</a>
 			  </div>
 		  </div>
 		</div>
@@ -172,17 +178,17 @@ ul.additional-tlds {list-style: none;}
 var directives = ['script-src', 'img-src', 'frame-src', 'style-src', 'connect-src', 'font-src'];
 var inputs = document.getElementsByTagName('input');
 var additionalTlds = {
-	'google.ad': '',
-	'google.ae': '',
-	'google.com.af': '',
-	'google.com.ag': '',
-	'google.com.ai': '',
-	'google.al': '',
-	'google.am': '',
-	'google.co.ao': '',
-	'google.com.ar': '',
-	'google.as': '',
-	'google.at': '',
+	'google.ad': 'Andorra',
+	'google.ae': 'United Arab Emirates',
+	'google.com.af': 'Afghanistan',
+	'google.com.ag': 'Antigua and Barbuda',
+	'google.com.ai': 'Anguilla',
+	'google.al': 'Albania',
+	'google.am': 'Armenia',
+	'google.co.ao': 'Angola',
+	'google.com.ar': 'Argentina',
+	'google.as': 'American Samoa',
+	'google.at': 'Austria',
 	'google.com.au': '',
 	'google.az': '',
 	'google.ba': '',
@@ -357,9 +363,9 @@ var additionalTlds = {
 	'google.vu': '',
 	'google.ws': '',
 	'google.rs': '',
-	'google.co.za': '',
-	'google.co.zm': '',
-	'google.co.zw': '',
+	'google.co.za': 'South Africa',
+	'google.co.zm': 'Zambia',
+	'google.co.zw': 'Zimbabwe',
 	'google.cat': ''
 };
 
@@ -572,7 +578,7 @@ update();
 </script>
 
 <footer style="text-align: center; font-size: 10pt; color: rgba(0, 0, 0, 0.54)">
-  <div class="container">This tool is provided free of charge and as such, no support is provided. There is no guarantee of correctness, and your are responsible for the security of your own website, and the websites you oversee.  This is not produced by Google.</div>
+  <div class="container">This tool is provided free of charge under the Apache License, Version 2.0.<br />No support is provided. There is no guarantee of correctness, and your are responsible for the security of your own website, and the websites you oversee.<br />This page is not produced by Google.</div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
