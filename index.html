@@ -189,24 +189,24 @@ var additionalTlds = {
 	'google.com.ar': 'Argentina',
 	'google.as': 'American Samoa',
 	'google.at': 'Austria',
-	'google.com.au': '',
-	'google.az': '',
-	'google.ba': '',
-	'google.com.bd': '',
-	'google.be': '',
-	'google.bf': '',
-	'google.bg': '',
-	'google.com.bh': '',
-	'google.bi': '',
-	'google.bj': '',
-	'google.com.bn': '',
-	'google.com.bo': '',
-	'google.com.br': '',
-	'google.bs': '',
-	'google.bt': '',
-	'google.co.bw': '',
-	'google.by': '',
-	'google.com.bz': '',
+	'google.com.au': 'Australia',
+	'google.az': 'Azerbaijan',
+	'google.ba': 'Bosnia and Herzegovina',
+	'google.com.bd': 'Bangladesh',
+	'google.be': 'Belgium',
+	'google.bf': 'Burkina Faso',
+	'google.bg': 'Bulgaria',
+	'google.com.bh': 'Bahrain',
+	'google.bi': 'Burundi',
+	'google.bj': 'Benin',
+	'google.com.bn': 'Brunei',
+	'google.com.bo': 'Bolivia',
+	'google.com.br': 'Brazil',
+	'google.bs': 'Bahamas',
+	'google.bt': 'Bhutan',
+	'google.co.bw': 'Botswana',
+	'google.by': 'Belarus',
+	'google.com.bz': 'Belize',
 	'google.ca': '',
 	'google.cd': '',
 	'google.cf': '',
@@ -349,20 +349,20 @@ var additionalTlds = {
 	'google.com.tr': '',
 	'google.tt': '',
 	'google.com.tw': 'Taiwan',
-	'google.co.tz': '',
-	'google.com.ua': '',
-	'google.co.ug': '',
+	'google.co.tz': 'Tanzania',
+	'google.com.ua': 'Ukraine',
+	'google.co.ug': 'Uganda',
 	'google.co.uk': 'United Kingdom',
 	'google.com.uy': 'Uruguay',
-	'google.co.uz': '',
-	'google.com.vc': '',
-	'google.co.ve': '',
-	'google.vg': '',
-	'google.co.vi': '',
-	'google.com.vn': '',
-	'google.vu': '',
-	'google.ws': '',
-	'google.rs': '',
+	'google.co.uz': 'Uzbekistan',
+	'google.com.vc': 'Saint Vincent and the Grenadines',
+	'google.co.ve': 'Venezuela',
+	'google.vg': 'Virgin Islands (British)',
+	'google.co.vi': 'Virgin Islands	(US)',
+	'google.com.vn': 'Vietnam',
+	'google.vu': 'Vanuatu',
+	'google.ws': 'Samoa',
+	'google.rs': 'Serbia',
 	'google.co.za': 'South Africa',
 	'google.co.zm': 'Zambia',
 	'google.co.zw': 'Zimbabwe',
@@ -454,10 +454,19 @@ var buildCspDirectives = function(options) {
 		var newDirective = optionDirectives[option][directive].slice();
 
 		// add additional CC-TLDs for GA4/Signals
-		if (['img-src', 'connect-src'].includes(directive) && option == 'google-analytics-4-with-google-signals') {
+		if (option == 'google-analytics-4-with-google-signals' && ['img-src', 'connect-src'].includes(directive)) {
 		  var additionalTlds = collectAdditionalTlds();
 		  if (additionalTlds.length) {
 			newDirective = getDirectiveWithReplacements(newDirective, 'https://*.google.TLD', additionalTlds.join(' '));
+		  }
+		}
+		if (['floodlight-tag', 'floodlight-custom-scripts'].includes(option) && ['img-src', 'frame-src'].includes(directive)) {
+		  var floodlightConfigId = document.querySelector('#setting-floodlight-config-id').value;
+console.log(option, directive, floodlightConfigId);
+		  if (floodlightConfigId) {
+		    var search = 'https://FLOODLIGHT-CONFIG-ID.fls.doubleclick.net';
+		    var replacement = search.replace('FLOODLIGHT-CONFIG-ID', floodlightConfigId);
+		    newDirective = getDirectiveWithReplacements(newDirective, search, replacement);
 		  }
 		}
 	    cspDirectives[directive] = cspDirectives[directive].concat(newDirective);
