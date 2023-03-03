@@ -457,7 +457,7 @@ var buildCspDirectives = function(options) {
 		if (['img-src', 'connect-src'].includes(directive) && option == 'google-analytics-4-with-google-signals') {
 		  var additionalTlds = collectAdditionalTlds();
 		  if (additionalTlds.length) {
-			newDirective = getDirectiveWithReplacements(newDirective, 'https://*.google.TLD', additionalTlds.join(' `'));
+			newDirective = getDirectiveWithReplacements(newDirective, 'https://*.google.TLD', additionalTlds.join(' '));
 		  }
 		}
 	    cspDirectives[directive] = cspDirectives[directive].concat(newDirective);
