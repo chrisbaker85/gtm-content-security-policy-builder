@@ -17,7 +17,19 @@ div.field-group {border-radius: 4px;box-shadow: 0 0 0 1px #dadce0; min-height: 5
 .offcanvas-header h5 {margin-left: 25px;}
 .offcanvas.offcanvas-end {width: 50%}
 ul.additional-tlds {list-style: none;}
+.form-check.indented a {font-size: 10pt; padding-left: 20px;}
+.open-tlds.disabled {color: #bfbfbf;}
+.open-tlds.enabled {color: inherit;}
 </style>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M234BJS');</script>
+<!-- End Google Tag Manager -->
+
 </head>
 
 <body style="background-color: #f1f3f4; font-family: 'Google Sans',Roboto,Helvetica,Arial,sans-serif;">
@@ -26,8 +38,18 @@ ul.additional-tlds {list-style: none;}
 	<div class="container">
 	  <div class="row">
 		<div class="col">
-		  <h1 style="font-size: 16pt; padding-top: 30px;">Content Security Policy Generator
-		  <span style="display: block; font-size: 12pt; clear: left;">for <a href="https://tagmanager.google.com/" target="_blank">Google Tag Manager</a></span></h1>
+			<h1 style="font-size: 16pt; padding-top: 30px;">
+
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="0 0 32.288136 43.050846" preserveAspectRatio="xMidYMid meet" id="svg8" sodipodi:docname="Editor_protection.svg" width="32.288136" height="43.050846" style="stroke-linecap:round;stroke-linejoin:round;vertical-align: bottom;" inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata id="metadata14"> <rdf:RDF><cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /> <dc:title /> </cc:Work> </rdf:RDF> </metadata>
+  <defs id="defs12" />
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#66bdc1" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1017" id="namedview10" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:pagecheckerboard="true" showborder="true" inkscape:showpageshadow="true" inkscape:zoom="22.627417" inkscape:cx="19.311881" inkscape:cy="19.004912" inkscape:window-x="1912" inkscape:window-y="32" inkscape:window-maximized="1" inkscape:current-layer="svg8" />
+  <rect style="fill:none;stroke:#808080;stroke-width:5.38135576" x="5.3813558" y="2.6906779" width="21.525423" height="32.288136" rx="10.762712" ry="10.762712" id="rect2" />
+  <rect x="0" y="17.877047" width="32.288136" height="25.173801" rx="2.6906779" ry="2.51738" style="fill:#3684eb;stroke-width:2.08206964;fill-opacity:1" id="rect4" />
+</svg>
+
+		  Content Security Policy Generator
+		  <span style="font-size: 12pt">for <a href="https://tagmanager.google.com/" target="_blank">Google Tag Manager</a></span></h1>
 		</div>
 	  </div>
 	</div>
@@ -41,7 +63,7 @@ ul.additional-tlds {list-style: none;}
 			<div class="card-contents">
 			  <div class="card-title">Usage</div>
 			  <div class="indented">
-				<p>This utility is designed to help take some of the frustration out of deploying Google Tag Manager on a website that has a Content Security Policy defined. It can be accessed at <a href="https://ga4-content-security-policy.web.app/" target="_blank">https://ga4-content-security-policy.web.app/</a></p>
+				<p>This utility is designed to help take some of the frustration out of deploying Google Tag Manager on a website that has a Content Security Policy defined. It can be accessed at <a href="https://ga4-content-security-policy.web.app/" target="_blank">https://ga4-content-security-policy.web.app/</a>. You should understand how Content Security Policies work before using this tool.</p>
 				<p>
 					<ol>
 						<li>Choose the GTM tags and features below that are in use in your GTM container.</li>
@@ -68,7 +90,7 @@ ul.additional-tlds {list-style: none;}
 				</div>
 
 
-				<h3 class="field-group-title">Google Analytics</h3>
+				<h3 class="field-group-title">Google Analytics Tags</h3>
 				<div class="field-group">
 					<div class="form-check form-switch">
 					  <input class="form-check-input" type="checkbox" role="switch" id="setting-universal-analytics">
@@ -83,12 +105,17 @@ ul.additional-tlds {list-style: none;}
 					<div class="form-check form-switch indented">
 					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-signals" disabled>
 					  <label class="form-check-label" for="setting-google-signals">Google Signals</label>
+					  
+					  <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="open-tlds disabled">
+						Choose Additional Google Country-Code TLDs
+					  </a>
+					  
 					</div>
 					
-					<a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Choose Additional Google Country-Code TLDs</a>
+					
 				</div>
 
-				<h3 class="field-group-title">Google Optimize</h3>
+				<h3 class="field-group-title">Google Optimize Tags</h3>
 				<div class="field-group">
 					<div class="form-check form-switch">
 					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-optimize">
@@ -96,7 +123,7 @@ ul.additional-tlds {list-style: none;}
 					</div>
 				</div>
 
-				<h3 class="field-group-title">Google Ads</h3>
+				<h3 class="field-group-title">Google Ads Tags</h3>
 				<div class="field-group">
 					<div class="form-check form-switch">
 					  <input class="form-check-input" type="checkbox" role="switch" id="setting-google-ads-conversion">
@@ -109,7 +136,7 @@ ul.additional-tlds {list-style: none;}
 					</div>
 				</div>
 
-				<h3 class="field-group-title">Floodlight</h3>
+				<h3 class="field-group-title">Floodlight Tags</h3>
 				<div class="field-group">
 					<div class="form-check form-switch">
 					  <input class="form-check-input" type="checkbox" role="switch" id="setting-floodlight">
@@ -169,6 +196,7 @@ ul.additional-tlds {list-style: none;}
 	<h5 class="offcanvas-title" id="offcanvasRightLabel">Additional cc-TLDs</h5>
   </div>
   <div class="offcanvas-body">
+	<p class="indented"><a href="#" id="tld-select-all">Select All</a> / <a href="#" id="tld-select-none">Select None</a></p>
     <ul class="additional-tlds">
 	</ul>
   </div>
@@ -566,6 +594,11 @@ for(var i = 0; i < inputs.length; i++) {
 		  document.getElementById('setting-floodlight-image-tags').disabled = false;
 		  document.getElementById('setting-floodlight-consent-mode').disabled = false;
 		}
+		if (el.id == 'setting-google-signals') {
+		  // enable tld link
+		  var link = document.querySelector('.open-tlds');
+		  link.classList.remove("disabled");
+		}
 	} else {
 		if (el.id == 'setting-google-analytics-4') {
 		  // dis google-signals toggle
@@ -577,11 +610,35 @@ for(var i = 0; i < inputs.length; i++) {
 		  document.getElementById('setting-floodlight-image-tags').disabled = true;
 		  document.getElementById('setting-floodlight-consent-mode').disabled = true;
 		}
+		if (el.id == 'setting-google-signals') {
+		  // enable tld link
+		  var link = document.querySelector('.open-tlds');
+		  link.classList.add("disabled");
+		}
 	}
 	
 	update();
   });
 }
+
+document.querySelector('#tld-select-all').addEventListener('click', function(e) {
+  e.preventDefault();
+  var tlds = document.querySelectorAll('.additional-tld input');
+  tlds.forEach(function(tld) {
+	tld.checked = 'checked';
+  });
+  update();
+});
+
+document.querySelector('#tld-select-none').addEventListener('click', function(e) {
+  e.preventDefault();
+  var tlds = document.querySelectorAll('.additional-tld input');
+  tlds.forEach(function(tld) {
+	tld.checked = false;
+  });
+  update();
+});
+
 
 update();
 
@@ -589,10 +646,7 @@ update();
 
 <footer style="text-align: center; font-size: 10pt; color: rgba(0, 0, 0, 0.54)">
   <div class="container">
-  This tool is provided free of charge under the Apache License, Version 2.0.
-  <br />No support is provided. There is no guarantee of correctness
-  <br />You are responsible for the security of your website, and the websites you oversee.
-  <br />This page is not produced by, or associated with, Google in any way.
+  This tool is provided free of charge under the Apache License, Version 2.0; No support is provided. There is no guarantee of correctness; You are responsible for the security of your website, and the websites you oversee; This page is not produced by, or associated with, Google in any way; Padlock icon by User:Krzysiek_123456789 - Own work, Public Domain, <a target="_blank" href="https://commons.wikimedia.org/w/index.php?curid=80785665">https://commons.wikimedia.org/w/index.php?curid=80785665</a>
   </div>
 </footer>
 

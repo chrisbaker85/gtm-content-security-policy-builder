@@ -1,6 +1,12 @@
 # Google Tag Manager Content Security Policy Builder
 
-This utility is designed to help take some of the frustration out of deploying Google Tag Manager on a website that has a Content Security Policy defined. It can be accessed at https://ga4-content-security-policy.web.app/
+This utility is designed to help take some of the frustration out of deploying Google Tag Manager on a website that has a Content Security Policy defined.
+
+It can be accessed at:
+https://ga4-content-security-policy.web.app/
+
+Source is at:
+https://github.com/chrisbaker85/gtm-content-security-policy-builder
 
 ## Usage
 
