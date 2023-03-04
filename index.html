@@ -184,7 +184,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<li><a target="_blank" href="https://developers.google.com/tag-platform/tag-manager/web/csp">https://developers.google.com/tag-platform/tag-manager/web/csp</a></li>
 				<li><a target="_blank" href="https://www.google.com/supported_domains">https://www.google.com/supported_domains</a></li>
 				<li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP</a></li>
-				<li><a target="_blank" href="https://en.wikipedia.org/wiki/Country_code_top-level_domain">https://en.wikipedia.org/wiki/Country_code_top-level_domain</a>
+				<li><a target="_blank" href="https://en.wikipedia.org/wiki/Country_code_top-level_domain">https://en.wikipedia.org/wiki/Country_code_top-level_domain</a></li>
+			  </ul>
 			  </div>
 		  </div>
 		</div>
@@ -279,43 +280,43 @@ var additionalTlds = {
 	'google.gm': 'Gambia',
 	'google.gr': 'Greece',
 	'google.com.gt': 'Guatemala',
-	'google.gy': '',
-	'google.com.hk': '',
-	'google.hn': '',
-	'google.hr': '',
-	'google.ht': '',
-	'google.hu': '',
-	'google.co.id': '',
-	'google.ie': '',
-	'google.co.il': '',
-	'google.im': '',
-	'google.co.in': '',
-	'google.iq': '',
-	'google.is': '',
-	'google.it': '',
-	'google.je': '',
-	'google.com.jm': '',
-	'google.jo': '',
+	'google.gy': 'Guyana',
+	'google.com.hk': 'Hong Kong',
+	'google.hn': 'Honduras',
+	'google.hr': 'Croatia',
+	'google.ht': 'Haiti',
+	'google.hu': 'Hungary',
+	'google.co.id': 'Indonesia',
+	'google.ie': 'Ireland',
+	'google.co.il': 'Israel',
+	'google.im': 'Isle of Man',
+	'google.co.in': 'India',
+	'google.iq': 'Iraq',
+	'google.is': 'Iceland',
+	'google.it': 'Italy	',
+	'google.je': 'Jersey',
+	'google.com.jm': 'Jamaica',
+	'google.jo': 'Jordan',
 	'google.co.jp': 'Japan',
-	'google.co.ke': '',
-	'google.com.kh': '',
-	'google.ki': '',
-	'google.kg': '',
+	'google.co.ke': 'Kenya',
+	'google.kg': 'Kyrgyzstan',
+	'google.com.kh': 'Cambodia',
+	'google.ki': 'Kiribati',
 	'google.co.kr': 'Korea',
-	'google.com.kw': '',
-	'google.kz': '',
-	'google.la': '',
-	'google.com.lb': '',
-	'google.li': '',
-	'google.lk': '',
-	'google.co.ls': '',
-	'google.lt': '',
-	'google.lu': '',
-	'google.lv': '',
-	'google.com.ly': '',
-	'google.co.ma': '',
-	'google.md': '',
-	'google.me': '',
+	'google.com.kw': 'Kuwait',
+	'google.kz': 'Kazakhstan',
+	'google.la': 'Laos',
+	'google.com.lb': 'Lebanon',
+	'google.li': 'Liechtenstein',
+	'google.lk': 'Sri Lanka	',
+	'google.co.ls': 'Lesotho',
+	'google.lt': 'Lithuania',
+	'google.lu': 'Luxembourg',
+	'google.lv': 'Latvia',
+	'google.com.ly': 'Libya',
+	'google.co.ma': 'Morocco',
+	'google.md': 'Moldova',
+	'google.me': 'Montenegro',
 	'google.mg': '',
 	'google.mk': '',
 	'google.ml': '',
@@ -494,7 +495,6 @@ var buildCspDirectives = function(options) {
 		}
 		if (['floodlight-tag', 'floodlight-custom-scripts'].includes(option) && ['img-src', 'frame-src'].includes(directive)) {
 		  var floodlightConfigId = document.querySelector('#setting-floodlight-config-id').value;
-console.log(option, directive, floodlightConfigId);
 		  if (floodlightConfigId) {
 		    var search = 'https://FLOODLIGHT-CONFIG-ID.fls.doubleclick.net';
 		    var replacement = search.replace('FLOODLIGHT-CONFIG-ID', floodlightConfigId);
