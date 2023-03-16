@@ -172,6 +172,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					<div class="form-check form-switch">
 					  <input class="form-check-input" type="checkbox" role="switch" id="setting-twitter">
 					  <label class="form-check-label" for="setting-twitter">Twitter</label>
+					  <span class="badge text-bg-warning">beta</span>
 					</div>
 				</div>
 				
@@ -472,6 +473,9 @@ var optionDirectives = {
 	'floodlight-consent-mode': {
 	  'img-src': ['https://ade.googlesyndication.com']
 	},
+	'twitter-pixel': {
+	  'script-src': ['https://platform.twitter.com/', 'https://static.ads-twitter.com/']
+	}
 
 }
 
@@ -552,6 +556,7 @@ var getDirectiveOptionsFromSettings = function() {
 	'setting-floodlight-custom-scripts': 'floodlight-custom-scripts',
 	'setting-floodlight-image-tags': 'floodlight-image-tags',
 	'setting-floodlight-consent-mode': 'floodlight-consent-mode',
+	'setting-twitter': 'twitter-pixel'
   };
   for(var i = 0; i < inputs.length; i++) {
     var input = inputs[i];
