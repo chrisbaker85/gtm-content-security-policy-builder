@@ -10,10 +10,14 @@ https://github.com/chrisbaker85/gtm-content-security-policy-builder
 
 ## Usage
 
-- Choose the GTM tags and features below that are in use in your GTM container.
+- Choose the Tags and features below that are in use in your GTM container.
 - For Google Analytics 4 with Google Signals enabled, choose additional country-specific Google domains that should be included in your implementation. Identify the country-specific Google domains by running a report of Users by Country
-- For Floodlight tags, enter your Floodlight Config ID
 - Integrate the CSP directives generated in the Output section below into the site's Content Security Policy.
+
+# How to Contribute
+- Yellow "wip" badges represent a feature that is a work in progress. Submit an Issue on GitHub to provide details of changes that are needed to the directives.
+- Blue "alpha" badges are features that need to be tested. Submit an Issue on GitHub if it doesn't work for you, along with details, such as error messages from the console.
+- Submit an Issue on GitHub if you're aware of changes that a platform has made, or for any other UX issues.
 
 ## Legal/Disclaimer
 - This tool is provided free of charge under the Apache License, Version 2.0.

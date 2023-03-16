@@ -52,7 +52,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </svg>
 
 		  Content Security Policy Generator
-		  <span style="font-size: 12pt">for <a href="https://tagmanager.google.com/" target="_blank">Google Tag Manager</a></span></h1>
+		  <span style="font-size: 12pt">for <a href="https://tagmanager.google.com/" target="_blank">Google Tag Manager</a></span>
+		  <div style="clear: left;font-size: 12pt;margin-left: 50px;margin-top: 5px;">
+			<a target="_blank" href="https://github.com/chrisbaker85/gtm-content-security-policy-builder">
+				<img src="github-mark.png" style="width: 20px;vertical-align: bottom;">An open-source, community-driven project</a>
+		  </div>
+		  </h1>
 		</div>
 	  </div>
 	</div>
@@ -70,9 +75,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<p>
 					<ol>
 						<li>Choose the GTM tags and features below that are in use in your GTM container.</li>
-						<li>For Google Analytics 4 with Google Signals enabled, choose additional country-specific Google domains that should be included in your implementation. Identify the country-specific Google domains by running a report of Users by Country</li>
-						<li>For Floodlight tags, enter your Floodlight Config ID</li>
 						<li>Integrate the CSP directives generated in the Output section below into the site's Content Security Policy.</li>
+						<li>See something that isn't quite right? <a target="_blank" href="https://github.com/chrisbaker85/gtm-content-security-policy-builder/issues">Submit an Issue</a> in the Github repository.</li>
 					</ol>
 			  </div>
 		    </div>
@@ -172,7 +176,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					<div class="form-check form-switch">
 					  <input class="form-check-input" type="checkbox" role="switch" id="setting-meta-pixel">
 					  <label class="form-check-label" for="setting-meta-pixel">Meta/Facebook Pixel</label>
-					  <span class="badge text-bg-warning">beta</span>
+					  <span class="badge text-bg-primary">alpha</span>
+					</div>
+				</div>
+				
+				<h3 class="field-group-title">Twitter Pixel</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-twitter">
+					  <label class="form-check-label" for="setting-twitter">Twitter</label>
+					  <span class="badge text-bg-warning">wip</span>
 					</div>
 				</div>
 				
@@ -190,7 +203,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	  </div>
 	  
 	  <div class="row align-items-start">
-		<div class="col card">
+		<div class="col">
 		  <div class="card-contents">
 			  <div class="card-title">References</div>
 			  <ul class="">
@@ -200,6 +213,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<li><a target="_blank" href="https://en.wikipedia.org/wiki/Country_code_top-level_domain">https://en.wikipedia.org/wiki/Country_code_top-level_domain</a></li>
 				<li><a target="_blank" href="https://josephpinder.com/blog/facebook-pixel-is-slowing-down-your-website-and-how-to-fix-it-securely">https://josephpinder.com/blog/facebook-pixel-is-slowing-down-your-website-and-how-to-fix-it-securely</a></li>
 				<li><a target="_blank" href="https://developers.facebook.com/docs/meta-pixel/advanced/#content-security-policy">https://developers.facebook.com/docs/meta-pixel/advanced/#content-security-policy</a></li>
+				<li><a target="_blank" href="https://business.twitter.com/en/help/campaign-measurement-and-analytics/conversion-tracking-for-websites.html">https://business.twitter.com/en/help/campaign-measurement-and-analytics/conversion-tracking-for-websites.html</a></li>
 			  </ul>
 			  </div>
 		  </div>
@@ -474,7 +488,9 @@ var optionDirectives = {
 	'floodlight-consent-mode': {
 	  'img-src': ['https://ade.googlesyndication.com']
 	},
-
+	'twitter-pixel': {
+	  'script-src': ['https://platform.twitter.com/', 'https://static.ads-twitter.com/']
+	},
 	'meta-pixel': {
 	  'script-src': ['https://connect.facebook.net'],
 	  'connect-src': ['https://www.facebook.com']
@@ -558,7 +574,8 @@ var getDirectiveOptionsFromSettings = function() {
 	'setting-floodlight-custom-scripts': 'floodlight-custom-scripts',
 	'setting-floodlight-image-tags': 'floodlight-image-tags',
 	'setting-floodlight-consent-mode': 'floodlight-consent-mode',
-	'setting-meta-pixel': 'meta-pixel'
+	'setting-meta-pixel': 'meta-pixel',
+	'setting-twitter': 'twitter-pixel'
   };
   for(var i = 0; i < inputs.length; i++) {
     var input = inputs[i];
