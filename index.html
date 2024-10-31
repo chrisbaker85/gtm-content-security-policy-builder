@@ -189,6 +189,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					  <span class="badge text-bg-warning">wip</span>
 					</div>
 				</div>
+
+				<h3 class="field-group-title">LinkedIn</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-linkedin">
+					  <label class="form-check-label" for="setting-linkedin">Insight Tag</label>
+					  <span class="badge text-bg-warning">wip</span>
+					</div>
+				</div>
+
+				<h3 class="field-group-title">Microsoft</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-microsoftuet">
+					  <label class="form-check-label" for="setting-microsoftuet">Universal Event Tracking Tags</label>
+					  <span class="badge text-bg-warning">wip</span>
+					</div>
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-microsoftclarity">
+					  <label class="form-check-label" for="setting-microsoftclarity">Clarity</label>
+					  <span class="badge text-bg-warning">wip</span>
+					</div>
+				</div>
+
+				<h3 class="field-group-title">Quantcast</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-quantcast">
+					  <label class="form-check-label" for="setting-quantcast">Quantserve Tag</label>
+					  <span class="badge text-bg-warning">wip</span>
+					</div>
+				</div>
+				
+				<h3 class="field-group-title">Reddit</h3>
+				<div class="field-group">
+					<div class="form-check form-switch">
+					  <input class="form-check-input" type="checkbox" role="switch" id="setting-reddit">
+					  <label class="form-check-label" for="setting-reddit">Reddit Pixel</label>
+					  <span class="badge text-bg-warning">wip</span>
+					</div>
+				</div>
 				
 			</div>
 		</div>
@@ -437,8 +478,9 @@ var optionDirectives = {
 	'gtm-preview-mode': {
 	  'script-src': ['https://tagmanager.google.com'],
 	  'style-src': ['https://tagmanager.google.com', 'https://fonts.googleapis.com'],
-	  'img-src': ['https://ssl.gstatic.com', 'https://www.gstatic.com'],
-	  'font-src': ['https://fonts.gstatic.com', 'data:']
+	  'img-src': ['https://ssl.gstatic.com', 'https://www.gstatic.com', 'https://www.googletagmanager.com'],
+	  'font-src': ['https://fonts.gstatic.com', 'data:'],
+	  'frame-src': ['https://www.googletagmanager.com']
 	},
 
 	'universal-analytics-tag': {
@@ -495,6 +537,28 @@ var optionDirectives = {
 	'meta-pixel': {
 	  'script-src': ['https://connect.facebook.net'],
 	  'connect-src': ['https://www.facebook.com']
+	},
+	'linkedin': {
+	  'img-src': ['https://px.ads.linkedin.com'],
+	  'connect-src': ['https://px.ads.linkedin.com']
+	},
+	'microsoftuet': {
+	  'img-src': ['https://bat.bing.com', 'https://c.bing.com'],
+	  'connect-src': ['https://bat.bing.com']
+	},
+	'microsoftclarity': {
+	  'img-src': ['https://bat.bing.com'],
+	  'connect-src': ['https://bat.bing.com']
+	},	
+	'quantcast': {
+	  'script-src': ['https://secure.quantserve.com', 'https://rules.quantcount.com'],
+	  'img-src': ['https://pixel.quantserve.com'],
+	  'connect-src': ['https://pixel.quantcount.com']
+	},
+	'reddit': {
+	  'script-src': ['https://www.redditstatic.com'],
+	  'img-src': ['https://alb.reddit.com'],
+	  'connect-src': ['https://www.redditstatic.com', 'https://pixel-config.reddit.com', 'https://conversions-config.reddit.com']
 	},
 }
 
@@ -576,7 +640,12 @@ var getDirectiveOptionsFromSettings = function() {
 	'setting-floodlight-image-tags': 'floodlight-image-tags',
 	'setting-floodlight-consent-mode': 'floodlight-consent-mode',
 	'setting-meta-pixel': 'meta-pixel',
-	'setting-twitter': 'twitter-pixel'
+	'setting-twitter': 'twitter-pixel',
+	'setting-linkedin': 'linkedin',
+	'setting-microsoftuet': 'microsoftuet',
+	'setting-microsoftclarity': 'microsoftclarity',
+	'setting-quantcast': 'quantcast',
+	'setting-reddit': 'reddit',
   };
   for(var i = 0; i < inputs.length; i++) {
     var input = inputs[i];
